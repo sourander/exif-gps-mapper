@@ -1,0 +1,24 @@
+input:
+
+  # The path including all images. Search is recursive
+  lookup_path: D:\MY_PICTURES
+
+  # Image extensions accepted
+  file_extensions:
+  - .NEF
+
+  # Directory names to be ignored in the recursive search
+  # Ignoring images without GPX data may improve the performance
+  ignore_dirs:
+  - Trash
+  - Cache
+  - Archive
+
+db:
+  # The path where data is written under this project
+  dir: data
+
+accesslink:
+  client_id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  client_secret: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  secrets_path: config/secrets.yaml

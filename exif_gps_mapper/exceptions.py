@@ -1,0 +1,2 @@
+class MaxRetryCountExceeded(Exception):
+    pass
