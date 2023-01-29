@@ -14,14 +14,6 @@ class ExerciseMaterializer(Materializer):
         'detailed-sport-info': 'string'
     }
 
-    def __init__(self, path: str):
-        # Settings
-        self.path = path
-
-        # Container
-        self.db = self._read()
-        self.rows = []
-
     def add(self, exercise_data: dict):
         # Convert to tuple
         row = tuple(exercise_data[col] for col in self.SCHEMA)

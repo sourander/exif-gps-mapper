@@ -14,14 +14,6 @@ class GpxMaterializer(Materializer):
         'point_time': 'datetime64[ns]'
     }
 
-    def __init__(self, path: str):
-        # Settings
-        self.path = path
-
-        # Container
-        self.db = self._read()
-        self.rows = []
-
     def add(self, gpx_data: str, exercise_id: int):
 
         if gpx_data:

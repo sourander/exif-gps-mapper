@@ -9,10 +9,12 @@ class Materializer(ABC):
     SCHEMA = None
     INDEX = None
 
-    @abstractmethod
-    def __init__(self, path):
-        self.path = None
-        self.db = None
+    def __init__(self, path: str):
+        # Settings
+        self.path = path
+
+        # Container
+        self.db = self._read()
         self.rows = []
 
     def _read(self) -> pd.DataFrame | None:
