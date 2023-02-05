@@ -4,6 +4,7 @@ from yaml import safe_load, safe_dump
 
 
 def read(config_path: str = "config/config.yaml") -> dict:
+
     # Read YAML file
     with open(config_path, 'r') as stream:
         config = safe_load(stream)

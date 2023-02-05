@@ -1,4 +1,4 @@
 from exif_gps_mapper.materialisers.exercise_materializer import ExerciseMaterializer
 from exif_gps_mapper.materialisers.gpx_materializer import GpxMaterializer
-from exif_gps_mapper.transactionpool import TransactionPool
+from exif_gps_mapper.accesslink.transaction_pool import TransactionPool
 from exif_gps_mapper.exifdatabase import ExifDatabase

@@ -1,14 +1,12 @@
 from unittest import mock, TestCase
 
-from exif_gps_mapper import TransactionPool
-from exif_gps_mapper.transactionpool import Singleton
+from exif_gps_mapper.accesslink.transaction import Transaction
 
 
-class TestIterator(TestCase):
+class TestTransactionIterator(TestCase):
 
-    # Remember reverse-order between decorators and parameters
-    @mock.patch.object(TransactionPool, "_get_exercise")
-    @mock.patch.object(TransactionPool, "_get_gpx")
+    @mock.patch.object(Transaction, "_get_exercise")
+    @mock.patch.object(Transaction, "_get_gpx")
     def test_iterator(self, mock_get_gpx, mock_get_exercise):
         # Fake data
         exercise_urls = ["a.com", "b.com"]
@@ -16,7 +14,7 @@ class TestIterator(TestCase):
         gpx_datafiles = ["<?xml?>a", "<?xml?>b"]
 
         # Init and set exercise urls to match length of two
-        transaction = TransactionPool("abc123", "def456")
+        transaction = Transaction("abc123", "def456")
         transaction._exercise_urls = exercise_urls
 
         # Mock to return the elements in handmade lists instead of API calls
@@ -27,7 +25,3 @@ class TestIterator(TestCase):
         returned = [t for t in transaction]
 
         self.assertEqual(returned, expected)
-
-    def tearDown(self):
-        # Reset singleton instances so that we can create new
-        Singleton._instances = {}
