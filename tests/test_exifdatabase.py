@@ -162,7 +162,7 @@ class TestExifDatabase(unittest.TestCase):
         # Delete an image from the lookup path
         self.delete_fake_images(1)
 
-        # Assume the deleted image has the path 'deleted_image.jpg'
+        # Apply deletes and then check the number of rows in the database
         self.exif_database.apply_deletes()
         final_count = len(self.exif_database.as_df)
 
